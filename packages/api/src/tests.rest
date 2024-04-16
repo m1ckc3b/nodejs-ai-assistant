@@ -1,0 +1,10 @@
+GET http://localhost:3000
+
+
+###
+POST http://localhost:3000/api
+Content-Type: application/json
+
+{
+  "question": "How are you ?"
+}
