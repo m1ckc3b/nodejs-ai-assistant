@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-ai-assistant",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "concurrently \"cd packages/api && bun run server\""
+  },
+  "workspaces": [
+    "packages/api",
+    "packages/front"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

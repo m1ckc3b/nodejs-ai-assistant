@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-ai-assistant/front",
+  "source": "src/index.html",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "parcel": "^2.12.0"
+  }
+}
