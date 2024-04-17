@@ -1,6 +1,6 @@
 {
   "name": "nodejs-ai-assistant/api",
-  "module": "src/server.ts",
+  "module": "server.ts",
   "type": "module",
   "scripts": {
     "server": "bun src/server.ts --watch"
