@@ -11,23 +11,15 @@ const supabaseKey = process.env.SUPABASE_API_KEY;
 if (!process.env.SUPABASE_URL) throw new Error(`Expected env var SUPABASE_URL`);
 const url = process.env.SUPABASE_URL;
 
-/**
- * Create the Vector Store
- *
- * @export
- * @return vectorStore - The instance of the vector store created
- */
-export async function supabaseVectorStore() {
-  const client = createClient(url, supabaseKey);
+const client = createClient(url, supabaseKey);
 
-  const vectorStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
-    client,
-    tableName: "documents",
-    queryName: "match_documents",
-  });
+const vectorStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
+  client,
+  tableName: "documents",
+  queryName: "match_documents",
+});
 
-  return vectorStore;
-}
+export const retriever = vectorStore.asRetriever();
 
 /**
  * Adding docs to a Supabase Vector store from a PDF file
@@ -38,9 +30,7 @@ export async function supabaseVectorStore() {
 export async function createAndStoreEmbeddings(file: File) {
   try {
     // Get chunks
-    const docs = await loadingAndSplittingDocuments(file);
-    // Init vector store
-    const vectorStore = await supabaseVectorStore();
+    const docs = await loadingAndSplittingDocuments(file)
     // Adding chunks to vector store
     vectorStore.addDocuments(docs);
   } catch (error: any | unknown) {
