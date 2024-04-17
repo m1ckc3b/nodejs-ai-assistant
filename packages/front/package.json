@@ -1,7 +1,6 @@
 {
   "name": "nodejs-ai-assistant/front",
   "source": "src/index.html",
-  "module": "index.ts",
   "type": "module",
   "scripts": {
     "start": "parcel",
