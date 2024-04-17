@@ -8,3 +8,6 @@ Content-Type: application/json
 {
   "question": "How are you ?"
 }
+
+###
+PUT http://localhost:3000/upload

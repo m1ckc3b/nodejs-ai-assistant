@@ -12,9 +12,15 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello from Node.js AI Assistant!")
 })
 
-app.post("/api", (req: Request, res: Response) => {
+app.post("/api", async (req: Request, res: Response) => {
   const { question } = req.body
+  // TO DO: adding the handle function
   res.status(200).json({ response: "Bien reçue !!!", question })
+})
+
+app.put('/upload', async (req: Request, res: Response) => {
+  // TO DO: adding the handle function
+  res.status(200).send("OK !!!")
 })
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
