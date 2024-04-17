@@ -1,6 +1,7 @@
 
 import express, { type Request, type Response, type NextFunction } from "express"
 import cors from "cors"
+import { chain } from "./llm/chain"
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -15,7 +16,8 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/api", async (req: Request, res: Response) => {
   const { question } = req.body
   // TO DO: adding the handle function
-  res.status(200).json({ response: "Bien reçue !!!", question })
+  const result = await chain(question)
+  res.status(200).json({ response: result, question })
 })
 
 app.put('/upload', async (req: Request, res: Response) => {
