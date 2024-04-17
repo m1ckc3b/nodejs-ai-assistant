@@ -1,6 +1,8 @@
 # Node.js AI Assistant
 
+This project is an example of how to implements a RAG Architecture with LangChain.js and GPT-3.5-turbo to answer any question about the book "Node.js Design Patterns"
 
+![alt text](image.png)
 
 ### This project was created with:
 <div>
