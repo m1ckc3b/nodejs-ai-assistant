@@ -4,10 +4,11 @@ import cors from "cors"
 import { main } from "./llm"
 
 const app = express()
-const port = process.env.PORT || 3000
-
 app.use(express.json())
 app.use(cors())
+
+const port = process.env.PORT || 3000
+
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello from Node.js AI Assistant!")
@@ -15,9 +16,9 @@ app.get("/", (req: Request, res: Response) => {
 
 app.post("/api", async (req: Request, res: Response) => {
   const { question } = req.body
-  // TO DO: adding the handle function
+  
   const result = await main(question)
-  res.status(200).json({ response: result, question })
+  res.status(200).send(result)
 })
 
 app.put('/upload', async (req: Request, res: Response) => {
