@@ -4,6 +4,8 @@ import { createClient } from "@supabase/supabase-js";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import type { Document } from "langchain/document";
+import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
+import { model } from "./model";
 
 if (!process.env.SUPABASE_API_KEY) throw new Error(`Expected SUPABASE_API_KEY`);
 const supabaseKey = process.env.SUPABASE_API_KEY;
@@ -19,7 +21,11 @@ const vectorStore = new SupabaseVectorStore(new OpenAIEmbeddings(), {
   queryName: "match_documents",
 });
 
-export const retriever = vectorStore.asRetriever();
+export const retriever = MultiQueryRetriever.fromLLM({
+  llm: model,
+  retriever: vectorStore.asRetriever(),
+  verbose: true
+})
 
 /**
  * Adding docs to a Supabase Vector store from a PDF file
