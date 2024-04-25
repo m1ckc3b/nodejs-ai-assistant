@@ -7,11 +7,11 @@ import type { Document } from "langchain/document";
 import { MultiQueryRetriever } from "langchain/retrievers/multi_query";
 import { model } from "./model";
 
-if (!process.env.SUPABASE_API_KEY) throw new Error(`Expected SUPABASE_API_KEY`);
-const supabaseKey = process.env.SUPABASE_API_KEY;
+if (!SUPABASE_API_KEY) throw new Error(`Expected SUPABASE_API_KEY`);
+const supabaseKey = SUPABASE_API_KEY;
 
-if (!process.env.SUPABASE_URL) throw new Error(`Expected env var SUPABASE_URL`);
-const url = process.env.SUPABASE_URL;
+if (!SUPABASE_URL) throw new Error(`Expected env var SUPABASE_URL`);
+const url = SUPABASE_URL;
 
 const client = createClient(url, supabaseKey);
 
