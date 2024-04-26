@@ -5,11 +5,6 @@ minify = true
 
 [vars]
 # MY_VAR = "my-variable"
-OPENAI_API_KEY="sk-proj-AwzEREEFXPFxx5l1QBmWT3BlbkFJ0caAJJ3aoASGUyFz1re4"
-LANGCHAIN_API_KEY="ls__7e3e00493a964889989ed2345f284752"
-LANGCHAIN_TRACING_V2=true
-SUPABASE_API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlvemp0eGJmZnV6YWJ6ZW5yaGJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTMyODI4MzMsImV4cCI6MjAyODg1ODgzM30.V6U4L1GC-bm6078ALN1DEfASWrYooU8tnAGzAMo1pKc"
-SUPABASE_URL="https://iozjtxbffuzabzenrhbe.supabase.co"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
