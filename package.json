@@ -1,21 +1,16 @@
 {
-  "name": "nodejs-ai-assistant",
-  "module": "index.ts",
-  "type": "module",
   "scripts": {
-    "start": "concurrently \"cd packages/api && bun run server\" \"cd packages/front && bun run start\""
-  },
-  "workspaces": [
-    "packages/api",
-    "packages/front"
-  ],
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "@supabase/supabase-js": "^2.42.7",
+    "hono": "^4.2.7",
+    "htmx.org": "^1.9.12",
+    "langchain": "^0.1.36"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240403.0",
+    "wrangler": "^3.47.0"
   }
 }

@@ -11,4 +11,5 @@ This project is an example of how to implements a RAG Architecture with LangChai
   <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/LangChain_logo.svg" width="60px" height="60px"/>&nbsp;
   <img src="https://www.cdnlogo.com/logos/o/38/openai.svg" width="60px" height="60px"/>&nbsp;
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="60px" height="60px"/>&nbsp;
+   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflareworkers/cloudflareworkers-original.svg" width="60px" height="60px"/>&nbsp;
 </div>
