@@ -1,6 +1,0 @@
-POST http://localhost:8787/api 
-Content-Type: "application/json"
-
-{
-  "question": "How are you?"
-}

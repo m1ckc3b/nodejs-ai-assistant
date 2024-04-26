@@ -1,9 +1,7 @@
-name = "hono-workers"
+name = "nodejs-chatbot"
 compatibility_date = "2023-12-01"
-main = "src/index.ts"
-minify = true
 
-[vars]
+# [vars]
 # MY_VAR = "my-variable"
 
 # [[kv_namespaces]]
@@ -21,7 +19,3 @@ minify = true
 
 # [ai]
 # binding = "AI"
-
-# [env.staging.vars]
-
-# [env.production.vars]

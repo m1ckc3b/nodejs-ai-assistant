@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+<title>Node.js Chatbot</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1e1e1e; /* Dark background color */
+        color: #fff; /* Text color */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .chat-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        height: 100vh; /* Full height of the viewport */
+        overflow: hidden;
+        margin: auto;
+    }
+
+    .chat-messages {
+        padding: 10px;
+        height: calc(100% - 60px); /* Subtract height of input + button */
+        overflow-y: auto;
+    }
+
+    .message {
+        margin-bottom: 10px;
+    }
+
+    .title-message {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #ccc;
+    }
+
+    .user-message {
+        background-color: #3b5998;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        /* float: right; */
+        /* max-width: 70%; */
+        word-wrap: break-word;
+    }
+
+    .bot-message {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        /* float: left; */
+        /* max-width: 70%; */
+        word-wrap: break-word;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-input-container {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        width: 100%;
+        max-width: 800px; /* Max width of chat container */
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        /* background-color: #333; Input background color */
+        z-index: 999; /* Ensure it's above the chat messages */
+        margin-bottom: 20px;
+    }
+
+    .chat-input {
+        position: relative;
+        flex: 1;
+        font-size: 20px;
+        padding: 20px;
+        border: 1px solid #444;
+        border-radius: 20px;
+        outline: none;
+        color: #444; /* Text color */
+        background-color: #1e1e1e;
+    }
+
+    .send-btn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        width: 50px;
+        transform: translateY(-50%);
+        height: 50px;
+        background-color: #3b5998;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        outline: none;
+        margin-left: 10px;
+    }
+
+    .send-btn:hover {
+        background-color: #2a3f7f;
+    }
+
+    /* Hide scrollbar */
+    .chat-messages::-webkit-scrollbar {
+        width: 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-messages" id="chat-messages">
+        <div class="message title-message">Node.js - Your AI Assistant</div>
+    </div>
+</div>
+
+<form class="chat-input-container" hx-get="/query" hx-trigger="submit" hx-target="#chat-messages" hx-swap="beforeend transition:true">
+    <input name="text" type="text" class="chat-input" id="user-input" placeholder="Type your message..." autofocus required="true">
+    <button class="send-btn" type="submit" id="submit-btn">Send</button>
+</form>
+
+<script>
+    htmx.on('htmx:beforeSend', (event) => {
+        const userInput = document.getElementById("user-input").value
+        const chatMessages = document.getElementById("chat-messages")
+        const  userMessage = document.createElement("div");
+        userMessage.className = "message user-message";
+        userMessage.innerHTML = userInput;
+        chatMessages.appendChild(userMessage);
+        document.querySelector("form").reset()
+    })
+</script>
+
+</body>
+</html>
